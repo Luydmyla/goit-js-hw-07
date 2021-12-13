@@ -34,16 +34,16 @@ function onGalleryItemsClick(event) {
   else {
     const instance = basicLightbox.create(`<img width="1400" height="900" src= "${event.target.dataset.source}">`, {
 
-      // ---добавляю слушательсобытий клавиатуры на кнопку эскейп при открытом модальном окне-----------
-      onShow: (instance) => {
-        document.addEventListener("keydown", this.onInstanceclick)
+      // ---добавляю опции при открытом модальном окне-----------
+      onShow: (instance) => {       
         // ---колбек-функция -обработчик события ---
         this.onInstanceclick = function (e) {
           // console.log(e.target);
           // ----------закрыла окно по кнопке Эскейп-------------
           if (e.code === "Escape") { instance.close() }
-       }
-        
+        }
+         // ---добавляю слушательсобытий клавиатуры на кнопку эскейп при открытом модальном окне-----------
+         document.addEventListener("keydown", this.onInstanceclick)
       },
       // -------снимаю слушателя ссобытий после закрытия модального окна------
       onClose: (instance) => {
